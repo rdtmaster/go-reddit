@@ -528,8 +528,9 @@ type Post struct {
 	Permalink string `json:"permalink,omitempty"`
 	URL       string `json:"url,omitempty"`
 
-	Title string `json:"title,omitempty"`
-	Body  string `json:"selftext,omitempty"`
+	Title         string `json:"title,omitempty"`
+	Body          string `json:"selftext,omitempty"`
+	Selftext_html string `json:"selftext_html,omitempty"`
 
 	// Indicates if you've upvoted/downvoted (true/false).
 	// If neither, it will be nil.
@@ -544,15 +545,15 @@ type Post struct {
 	SubredditID           string `json:"subreddit_id,omitempty"`
 	SubredditSubscribers  int    `json:"subreddit_subscribers"`
 
-	Author   string `json:"author,omitempty"`
-	AuthorID string `json:"author_fullname,omitempty"`
-
-	Spoiler    bool `json:"spoiler"`
-	Locked     bool `json:"locked"`
-	NSFW       bool `json:"over_18"`
-	IsSelfPost bool `json:"is_self"`
-	Saved      bool `json:"saved"`
-	Stickied   bool `json:"stickied"`
+	Author        string `json:"author,omitempty"`
+	AuthorID      string `json:"author_fullname,omitempty"`
+	Distinguished string `json:"Distinguished,omitempty"`
+	Spoiler       bool   `json:"spoiler"`
+	Locked        bool   `json:"locked"`
+	NSFW          bool   `json:"over_18"`
+	IsSelfPost    bool   `json:"is_self"`
+	Saved         bool   `json:"saved"`
+	Stickied      bool   `json:"stickied"`
 }
 
 // Subreddit holds information about a subreddit
