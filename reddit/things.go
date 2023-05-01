@@ -518,6 +518,17 @@ type More struct {
 	Children []string `json:"children"`
 }
 
+//Partial support for Awardings
+type Awarding struct {
+	ID               string `json:"id,omitempty"`
+	Name             string `json:"name,omitempty"`
+	Count            int    `json:"count,omitempty"`
+	CoinPrice        int    `json:"coin_price,omitempty"`
+	StaticIconURL    string `json:"static_icon_url,omitempty"`
+	StaticIconWidth  int    `json:"static_icon_width,omitempty"`
+	StaticIconHeight int    `json:"static_icon_height,omitempty"`
+	Description      string `json:"description,omitempty"`
+}
 // Post is a submitted post on Reddit.
 type Post struct {
 	ID      string     `json:"id,omitempty"`
@@ -528,14 +539,15 @@ type Post struct {
 	Permalink string `json:"permalink,omitempty"`
 	URL       string `json:"url,omitempty"`
 
-	Title         string `json:"title,omitempty"`
-	Body          string `json:"selftext,omitempty"`
-	Selftext_html string `json:"selftext_html,omitempty"`
-
+	Title         string     `json:"title,omitempty"`
+	Body          string     `json:"selftext,omitempty"`
+	Selftext_html string     `json:"selftext_html,omitempty"`
+	TotalAwards   int        `json:"total_awards_received,omitempty"`
+	Awardings     []Awarding `json:"all_awardings,omitempty"`
 	// Indicates if you've upvoted/downvoted (true/false).
 	// If neither, it will be nil.
-	Likes *bool `json:"likes"`
-
+	Likes            *bool   `json:"likes"`
+	LinkFlairText    string  `json:"link_flair_text,omitempty"`
 	Score            int     `json:"score"`
 	UpvoteRatio      float32 `json:"upvote_ratio"`
 	NumberOfComments int     `json:"num_comments"`
