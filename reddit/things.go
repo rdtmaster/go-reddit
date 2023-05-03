@@ -400,6 +400,7 @@ type Comment struct {
 	Permalink string `json:"permalink,omitempty"`
 
 	Body            string `json:"body,omitempty"`
+	Body_html       string `json:"body_html,omitempty"`
 	Author          string `json:"author,omitempty"`
 	AuthorID        string `json:"author_fullname,omitempty"`
 	AuthorFlairText string `json:"author_flair_text,omitempty"`
@@ -518,7 +519,7 @@ type More struct {
 	Children []string `json:"children"`
 }
 
-//Partial support for Awardings
+// Partial support for Awardings
 type Awarding struct {
 	ID               string `json:"id,omitempty"`
 	Name             string `json:"name,omitempty"`
@@ -529,6 +530,7 @@ type Awarding struct {
 	StaticIconHeight int    `json:"static_icon_height,omitempty"`
 	Description      string `json:"description,omitempty"`
 }
+
 // Post is a submitted post on Reddit.
 type Post struct {
 	ID      string     `json:"id,omitempty"`
