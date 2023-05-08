@@ -396,9 +396,9 @@ type Comment struct {
 	Created *Timestamp `json:"created_utc,omitempty"`
 	Edited  *Timestamp `json:"edited,omitempty"`
 
-	ParentID  string `json:"parent_id,omitempty"`
-	Permalink string `json:"permalink,omitempty"`
-
+	ParentID        string `json:"parent_id,omitempty"`
+	Permalink       string `json:"permalink,omitempty"`
+	Distinguished   string `json:"Distinguished,omitempty"`
 	Body            string `json:"body,omitempty"`
 	Body_html       string `json:"body_html,omitempty"`
 	Author          string `json:"author,omitempty"`
