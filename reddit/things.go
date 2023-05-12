@@ -427,15 +427,16 @@ type Comment struct {
 	// This doesn't appear consistently.
 	PostNumComments *int `json:"num_comments,omitempty"`
 
-	IsSubmitter bool `json:"is_submitter"`
-	ScoreHidden bool `json:"score_hidden"`
-	Saved       bool `json:"saved"`
-	Stickied    bool `json:"stickied"`
-	Locked      bool `json:"locked"`
-	CanGild     bool `json:"can_gild"`
-	NSFW        bool `json:"over_18"`
-
-	Replies Replies `json:"replies"`
+	IsSubmitter bool       `json:"is_submitter"`
+	ScoreHidden bool       `json:"score_hidden"`
+	Saved       bool       `json:"saved"`
+	Stickied    bool       `json:"stickied"`
+	Locked      bool       `json:"locked"`
+	CanGild     bool       `json:"can_gild"`
+	NSFW        bool       `json:"over_18"`
+	TotalAwards int        `json:"total_awards_received,omitempty"`
+	Awardings   []Awarding `json:"all_awardings,omitempty"`
+	Replies     Replies    `json:"replies"`
 }
 
 // HasMore determines whether the comment has more replies to load in its reply tree.
