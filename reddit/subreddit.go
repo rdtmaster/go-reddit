@@ -347,7 +347,7 @@ func (s *SubredditService) RisingPosts(ctx context.Context, subreddit string, op
 // If none are defined, it returns the ones from your subscribed subreddits.
 // To search through all, just specify "all".
 // To search through all and filter out subreddits, provide "all-name1-name2".
-func (s *SubredditService) ControversialPosts(ctx context.Context, subreddit string, opts *ListPostOptions) ([]*Post, *Response, error) {
+func (s *SubredditService) ControversialPosts(ctx context.Context, subreddit string, opts *ListOptions) ([]*Post, *Response, error) {
 	return s.getPosts(ctx, "controversial", subreddit, opts)
 }
 
