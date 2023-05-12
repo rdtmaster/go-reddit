@@ -559,15 +559,30 @@ type Post struct {
 	SubredditID           string `json:"subreddit_id,omitempty"`
 	SubredditSubscribers  int    `json:"subreddit_subscribers"`
 
-	Author        string `json:"author,omitempty"`
-	AuthorID      string `json:"author_fullname,omitempty"`
-	Distinguished string `json:"Distinguished,omitempty"`
-	Spoiler       bool   `json:"spoiler"`
-	Locked        bool   `json:"locked"`
-	NSFW          bool   `json:"over_18"`
-	IsSelfPost    bool   `json:"is_self"`
-	Saved         bool   `json:"saved"`
-	Stickied      bool   `json:"stickied"`
+	Author              string `json:"author,omitempty"`
+	AuthorID            string `json:"author_fullname,omitempty"`
+	Distinguished       string `json:"Distinguished,omitempty"`
+	Spoiler             bool   `json:"spoiler"`
+	Locked              bool   `json:"locked"`
+	NSFW                bool   `json:"over_18"`
+	Domain              string `json:"domain"`
+	IsSelfPost          bool   `json:"is_self"`
+	IsRedditMediaDomain bool   `json:"is_reddit_media_domain"`
+	Thumbnail           string `json:"thumbnail"`
+	//Preview             map[string]interface{} `json:"preview,omitempty"`
+	Preview struct {
+		Enabled bool `json:"enabled"`
+		Images  []struct {
+			ID          string `json:"id"`
+			Resolutions []struct {
+				Width  int    `json:"width"`
+				Height int    `json:"height"`
+				URL    string `json:"url"`
+			} `json:"resolutions"`
+		} `json:"images"`
+	} `json:"preview,omitempty"`
+	Saved    bool `json:"saved"`
+	Stickied bool `json:"stickied"`
 }
 
 // Subreddit holds information about a subreddit
