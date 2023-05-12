@@ -531,6 +531,18 @@ type Awarding struct {
 	Description      string `json:"description,omitempty"`
 }
 
+type RedditPreview struct {
+	Enabled bool `json:"enabled"`
+	Images  []struct {
+		ID          string `json:"id"`
+		Resolutions []struct {
+			Width  int    `json:"width"`
+			Height int    `json:"height"`
+			URL    string `json:"url"`
+		} `json:"resolutions"`
+	} `json:"images"`
+}
+
 // Post is a submitted post on Reddit.
 type Post struct {
 	ID      string     `json:"id,omitempty"`
@@ -570,19 +582,9 @@ type Post struct {
 	IsRedditMediaDomain bool   `json:"is_reddit_media_domain"`
 	Thumbnail           string `json:"thumbnail"`
 	//Preview             map[string]interface{} `json:"preview,omitempty"`
-	Preview struct {
-		Enabled bool `json:"enabled"`
-		Images  []struct {
-			ID          string `json:"id"`
-			Resolutions []struct {
-				Width  int    `json:"width"`
-				Height int    `json:"height"`
-				URL    string `json:"url"`
-			} `json:"resolutions"`
-		} `json:"images"`
-	} `json:"preview,omitempty"`
-	Saved    bool `json:"saved"`
-	Stickied bool `json:"stickied"`
+	Preview  RedditPreview `json:"preview,omitempty"`
+	Saved    bool          `json:"saved"`
+	Stickied bool          `json:"stickied"`
 }
 
 // Subreddit holds information about a subreddit
