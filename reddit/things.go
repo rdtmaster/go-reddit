@@ -561,9 +561,19 @@ type Post struct {
 	Awardings     []Awarding `json:"all_awardings,omitempty"`
 	// Indicates if you've upvoted/downvoted (true/false).
 	// If neither, it will be nil.
-	Likes               *bool   `json:"likes"`
+	Likes                 *bool  `json:"likes"`
+	AuthorFlairBackground string `json:"author_flair_background_color"`
+	AuthorFlairColor      string `json:"author_flair_text_color"`
+	AuthorFlairCSS        string `json:"author_flair_css_class"`
+	AuthorFlairText       string `json:"author_flair_text"`
+	LinkFlairRichtext     struct {
+		A string `json:"a"`
+		E string `json:"e"`
+		T string `json:"t"`
+		U string `json:"u"`
+	} `json:"link_flair_richtext"`
 	LinkFlairBackground string  `json:"link_flair_background_color"`
-	LinkFlairTextColor  string  `json:"link_flair_text_color"`
+	LinkFlairColor      string  `json:"link_flair_text_color"`
 	LinkFlairText       string  `json:"link_flair_text,omitempty"`
 	Score               int     `json:"score"`
 	UpvoteRatio         float32 `json:"upvote_ratio"`
