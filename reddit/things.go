@@ -28,7 +28,6 @@ const (
 	kindWikiPageSettings  = "wikipagesettings"
 	kindStyleSheet        = "stylesheet"
 )
-
 type anchor interface {
 	After() string
 }
