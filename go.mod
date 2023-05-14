@@ -1,4 +1,4 @@
-module github.com/rdtmaster/go-reddit/v3
+module github.com/rdtmaster/go-reddit/v4
 
 go 1.15
 
