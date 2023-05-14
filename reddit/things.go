@@ -396,15 +396,18 @@ type Comment struct {
 	Created *Timestamp `json:"created_utc,omitempty"`
 	Edited  *Timestamp `json:"edited,omitempty"`
 
-	ParentID        string `json:"parent_id,omitempty"`
-	Permalink       string `json:"permalink,omitempty"`
-	Distinguished   string `json:"Distinguished,omitempty"`
-	Body            string `json:"body,omitempty"`
-	Body_html       string `json:"body_html,omitempty"`
-	Author          string `json:"author,omitempty"`
-	AuthorID        string `json:"author_fullname,omitempty"`
-	AuthorFlairText string `json:"author_flair_text,omitempty"`
-	AuthorFlairID   string `json:"author_flair_template_id,omitempty"`
+	ParentID              string      `json:"parent_id,omitempty"`
+	Permalink             string      `json:"permalink,omitempty"`
+	Distinguished         string      `json:"Distinguished,omitempty"`
+	Body                  string      `json:"body,omitempty"`
+	Body_html             string      `json:"body_html,omitempty"`
+	Author                string      `json:"author,omitempty"`
+	AuthorID              string      `json:"author_fullname,omitempty"`
+	AuthorFlairText       string      `json:"author_flair_text,omitempty"`
+	AuthorFlairBackground string      `json:"author_flair_background_color"`
+	AuthorFlairRichtext   []RichFlair `json:"author_flair_richtext"`
+	AuthorFlairColor      string      `json:"author_flair_text_color"`
+	AuthorFlairID         string      `json:"author_flair_template_id,omitempty"`
 
 	SubredditName         string `json:"subreddit,omitempty"`
 	SubredditNamePrefixed string `json:"subreddit_name_prefixed,omitempty"`
@@ -567,19 +570,19 @@ type Post struct {
 	Awardings     []Awarding `json:"all_awardings,omitempty"`
 	// Indicates if you've upvoted/downvoted (true/false).
 	// If neither, it will be nil.
-	Likes                 *bool       `json:"likes"`
-	AuthorFlairBackground string      `json:"author_flair_background_color"`
-	AuthorFlairColor      string      `json:"author_flair_text_color"`
-	AuthorFlairCSS        string      `json:"author_flair_css_class"`
-	AuthorFlairText       string      `json:"author_flair_text"`
-	LinkFlairRichtext     []RichFlair `json:"link_flair_richtext"`
-	AuthorFlairRichtext   []RichFlair `json:"author_flair_richtext"`
-	LinkFlairBackground   string      `json:"link_flair_background_color"`
-	LinkFlairColor        string      `json:"link_flair_text_color"`
-	LinkFlairText         string      `json:"link_flair_text,omitempty"`
-	Score                 int         `json:"score"`
-	UpvoteRatio           float32     `json:"upvote_ratio"`
-	NumberOfComments      int         `json:"num_comments"`
+	Likes                 *bool  `json:"likes"`
+	AuthorFlairBackground string `json:"author_flair_background_color"`
+	AuthorFlairColor      string `json:"author_flair_text_color"`
+	AuthorFlairCSS        string `json:"author_flair_css_class"`
+	AuthorFlairText       string `json:"author_flair_text"`
+
+	AuthorFlairRichtext []RichFlair `json:"author_flair_richtext"`
+	LinkFlairBackground string      `json:"link_flair_background_color"`
+	LinkFlairColor      string      `json:"link_flair_text_color"`
+	LinkFlairText       string      `json:"link_flair_text,omitempty"`
+	Score               int         `json:"score"`
+	UpvoteRatio         float32     `json:"upvote_ratio"`
+	NumberOfComments    int         `json:"num_comments"`
 
 	SubredditName         string `json:"subreddit,omitempty"`
 	SubredditNamePrefixed string `json:"subreddit_name_prefixed,omitempty"`
