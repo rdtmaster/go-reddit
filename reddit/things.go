@@ -543,6 +543,12 @@ type RedditPreview struct {
 		} `json:"resolutions"`
 	} `json:"images"`
 }
+type RichFlair struct {
+	A string `json:"a"`
+	E string `json:"e"`
+	T string `json:"t"`
+	U string `json:"u"`
+}
 
 // Post is a submitted post on Reddit.
 type Post struct {
@@ -561,23 +567,19 @@ type Post struct {
 	Awardings     []Awarding `json:"all_awardings,omitempty"`
 	// Indicates if you've upvoted/downvoted (true/false).
 	// If neither, it will be nil.
-	Likes                 *bool  `json:"likes"`
-	AuthorFlairBackground string `json:"author_flair_background_color"`
-	AuthorFlairColor      string `json:"author_flair_text_color"`
-	AuthorFlairCSS        string `json:"author_flair_css_class"`
-	AuthorFlairText       string `json:"author_flair_text"`
-	LinkFlairRichtext     struct {
-		A string `json:"a"`
-		E string `json:"e"`
-		T string `json:"t"`
-		U string `json:"u"`
-	} `json:"link_flair_richtext"`
-	LinkFlairBackground string  `json:"link_flair_background_color"`
-	LinkFlairColor      string  `json:"link_flair_text_color"`
-	LinkFlairText       string  `json:"link_flair_text,omitempty"`
-	Score               int     `json:"score"`
-	UpvoteRatio         float32 `json:"upvote_ratio"`
-	NumberOfComments    int     `json:"num_comments"`
+	Likes                 *bool       `json:"likes"`
+	AuthorFlairBackground string      `json:"author_flair_background_color"`
+	AuthorFlairColor      string      `json:"author_flair_text_color"`
+	AuthorFlairCSS        string      `json:"author_flair_css_class"`
+	AuthorFlairText       string      `json:"author_flair_text"`
+	LinkFlairRichtext     []RichFlair `json:"link_flair_richtext"`
+	AuthorFlairRichtext   []RichFlair `json:"author_flair_richtext"`
+	LinkFlairBackground   string      `json:"link_flair_background_color"`
+	LinkFlairColor        string      `json:"link_flair_text_color"`
+	LinkFlairText         string      `json:"link_flair_text,omitempty"`
+	Score                 int         `json:"score"`
+	UpvoteRatio           float32     `json:"upvote_ratio"`
+	NumberOfComments      int         `json:"num_comments"`
 
 	SubredditName         string `json:"subreddit,omitempty"`
 	SubredditNamePrefixed string `json:"subreddit_name_prefixed,omitempty"`
