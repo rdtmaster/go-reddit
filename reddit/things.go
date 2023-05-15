@@ -28,6 +28,7 @@ const (
 	kindWikiPageSettings  = "wikipagesettings"
 	kindStyleSheet        = "stylesheet"
 )
+
 type anchor interface {
 	After() string
 }
@@ -395,12 +396,13 @@ type Comment struct {
 	Created *Timestamp `json:"created_utc,omitempty"`
 	Edited  *Timestamp `json:"edited,omitempty"`
 
-	ParentID              string      `json:"parent_id,omitempty"`
-	Permalink             string      `json:"permalink,omitempty"`
-	Distinguished         string      `json:"Distinguished,omitempty"`
-	Body                  string      `json:"body,omitempty"`
-	Body_html             string      `json:"body_html,omitempty"`
-	Author                string      `json:"author,omitempty"`
+	ParentID      string `json:"parent_id,omitempty"`
+	Permalink     string `json:"permalink,omitempty"`
+	Distinguished string `json:"Distinguished,omitempty"`
+	Body          string `json:"body,omitempty"`
+	Body_html     string `json:"body_html,omitempty"`
+	Author        string `json:"author,omitempty"`
+
 	AuthorID              string      `json:"author_fullname,omitempty"`
 	AuthorFlairText       string      `json:"author_flair_text,omitempty"`
 	AuthorFlairBackground string      `json:"author_flair_background_color"`
@@ -575,19 +577,19 @@ type Post struct {
 	AuthorFlairCSS        string `json:"author_flair_css_class"`
 	AuthorFlairText       string `json:"author_flair_text"`
 
-	AuthorFlairRichtext []RichFlair `json:"author_flair_richtext"`
-	LinkFlairBackground string      `json:"link_flair_background_color"`
-	LinkFlairColor      string      `json:"link_flair_text_color"`
-	LinkFlairText       string      `json:"link_flair_text,omitempty"`
-	Score               int         `json:"score"`
-	UpvoteRatio         float32     `json:"upvote_ratio"`
-	NumberOfComments    int         `json:"num_comments"`
+	AuthorFlairRichtext   []RichFlair `json:"author_flair_richtext"`
+	LinkFlairBackground   string      `json:"link_flair_background_color"`
+	LinkFlairColor        string      `json:"link_flair_text_color"`
+	LinkFlairText         string      `json:"link_flair_text,omitempty"`
+	Score                 int         `json:"score"`
+	UpvoteRatio           float32     `json:"upvote_ratio"`
+	NumberOfComments      int         `json:"num_comments"`
+	SubredditName         string      `json:"subreddit,omitempty"`
+	SubredditNamePrefixed string      `json:"subreddit_name_prefixed,omitempty"`
+	SubredditID           string      `json:"subreddit_id,omitempty"`
+	SubredditSubscribers  int         `json:"subreddit_subscribers"`
 
-	SubredditName         string `json:"subreddit,omitempty"`
-	SubredditNamePrefixed string `json:"subreddit_name_prefixed,omitempty"`
-	SubredditID           string `json:"subreddit_id,omitempty"`
-	SubredditSubscribers  int    `json:"subreddit_subscribers"`
-
+	Pinned              bool   `json:"pinned"`
 	Author              string `json:"author,omitempty"`
 	AuthorID            string `json:"author_fullname,omitempty"`
 	Distinguished       string `json:"Distinguished,omitempty"`
