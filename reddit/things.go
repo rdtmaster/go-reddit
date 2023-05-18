@@ -418,10 +418,10 @@ type Comment struct {
 	// If neither, it will be nil.
 	Likes *bool `json:"likes"`
 
-	Score            int `json:"score"`
-	Controversiality int `json:"controversiality"`
-
-	PostID string `json:"link_id,omitempty"`
+	Score            int    `json:"score"`
+	Controversiality int    `json:"controversiality"`
+	Collapsed        bool   `json:"collapsed"`
+	PostID           string `json:"link_id,omitempty"`
 	// This doesn't appear consistently.
 	PostTitle string `json:"link_title,omitempty"`
 	// This doesn't appear consistently.
