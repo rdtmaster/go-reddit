@@ -21,16 +21,26 @@ type MessageService struct {
 
 // Message is a message.
 type Message struct {
-	ID      string     `json:"id"`
-	FullID  string     `json:"name"`
+	ID     string `json:"id"`
+	FullID string `json:"name"`
+
 	Created *Timestamp `json:"created_utc"`
 
-	Subject  string `json:"subject"`
-	Text     string `json:"body"`
-	ParentID string `json:"parent_id"`
-
-	Author string `json:"author"`
-	To     string `json:"dest"`
+	Subject               string `json:"subject"`
+	Text                  string `json:"body"`
+	Type                  string `json:"type"`
+	BodyHtml              string `json:"body_html"`
+	ParentID              string `json:"parent_id"`
+	New                   bool   `json:"new"`
+	Score                 int    `json:"score"`
+	NumComments           int    `json:"num_comments"`
+	Distinguished         string `json:"distinguished"`
+	SubredditNamePrefixed string `json:"subreddit_name_prefixed"`
+	Subreddit             string `json:"subreddit"`
+	LinkTitle             string `json:"link_title"`
+	Context               string `json:"context"`
+	Author                string `json:"author"`
+	To                    string `json:"dest"`
 
 	IsComment bool `json:"was_comment"`
 }
