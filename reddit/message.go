@@ -102,6 +102,7 @@ func (t *inboxThings) add(things ...inboxThing) {
 			t.Comments = append(t.Comments, thing.Data)
 		case kindMessage:
 			t.Messages = append(t.Messages, thing.Data)
+
 		}
 	}
 }
@@ -257,7 +258,7 @@ func (s *MessageService) Send(ctx context.Context, sendRequest *SendMessageReque
 }
 
 // Inbox returns comments and messages that appear in your inbox, respectively.
-func (s *MessageService) Inbox(ctx context.Context, opts *ListOptions) ([]*Message, []*Message, *Response, error) {
+func (s *MessageService) Inbox(ctx context.Context, opts *MessageListOptions) ([]*Message, []*Message, *Response, error) {
 	root, resp, err := s.inbox(ctx, "message/inbox", opts)
 	if err != nil {
 		return nil, nil, resp, err
@@ -266,7 +267,7 @@ func (s *MessageService) Inbox(ctx context.Context, opts *ListOptions) ([]*Messa
 }
 
 // InboxUnread returns unread comments and messages that appear in your inbox, respectively.
-func (s *MessageService) InboxUnread(ctx context.Context, opts *ListOptions) ([]*Message, []*Message, *Response, error) {
+func (s *MessageService) InboxUnread(ctx context.Context, opts *MessageListOptions) ([]*Message, []*Message, *Response, error) {
 	root, resp, err := s.inbox(ctx, "message/unread", opts)
 	if err != nil {
 		return nil, nil, resp, err
@@ -275,7 +276,7 @@ func (s *MessageService) InboxUnread(ctx context.Context, opts *ListOptions) ([]
 }
 
 // Sent returns messages that you've sent.
-func (s *MessageService) Sent(ctx context.Context, opts *ListOptions) ([]*Message, *Response, error) {
+func (s *MessageService) Sent(ctx context.Context, opts *MessageListOptions) ([]*Message, *Response, error) {
 	root, resp, err := s.inbox(ctx, "message/sent", opts)
 	if err != nil {
 		return nil, resp, err
@@ -283,7 +284,7 @@ func (s *MessageService) Sent(ctx context.Context, opts *ListOptions) ([]*Messag
 	return root.Messages, resp, nil
 }
 
-func (s *MessageService) inbox(ctx context.Context, path string, opts *ListOptions) (*inboxListing, *Response, error) {
+func (s *MessageService) inbox(ctx context.Context, path string, opts *MessageListOptions) (*inboxListing, *Response, error) {
 	path, err := addOptions(path, opts)
 	if err != nil {
 		return nil, nil, err
