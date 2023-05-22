@@ -32,6 +32,7 @@ type Message struct {
 	BodyHtml              string `json:"body_html"`
 	ParentID              string `json:"parent_id"`
 	New                   bool   `json:"new"`
+	Likes                 *bool  `json:"likes"`
 	Score                 int    `json:"score"`
 	NumComments           int    `json:"num_comments"`
 	Distinguished         string `json:"distinguished"`
