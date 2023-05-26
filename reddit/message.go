@@ -275,6 +275,34 @@ func (s *MessageService) InboxUnread(ctx context.Context, opts *ListOptions) ([]
 	}
 	return root.Comments, root.Messages, resp, nil
 }
+func (s *MessageService) InboxComments(ctx context.Context, opts *ListOptions) ([]*Message, []*Message, *Response, error) {
+	root, resp, err := s.inbox(ctx, "message/comments", opts)
+	if err != nil {
+		return nil, nil, resp, err
+	}
+	return root.Comments, nil, resp, nil
+}
+func (s *MessageService) InboxSelfReplies(ctx context.Context, opts *ListOptions) ([]*Message, []*Message, *Response, error) {
+	root, resp, err := s.inbox(ctx, "message/selfreply", opts)
+	if err != nil {
+		return nil, nil, resp, err
+	}
+	return root.Comments, nil, resp, nil
+}
+func (s *MessageService) InboxMentions(ctx context.Context, opts *ListOptions) ([]*Message, []*Message, *Response, error) {
+	root, resp, err := s.inbox(ctx, "message/mentions", opts)
+	if err != nil {
+		return nil, nil, resp, err
+	}
+	return root.Comments, nil, resp, nil
+}
+func (s *MessageService) InboxMessages(ctx context.Context, opts *ListOptions) ([]*Message, []*Message, *Response, error) {
+	root, resp, err := s.inbox(ctx, "message/messages", opts)
+	if err != nil {
+		return nil, nil, resp, err
+	}
+	return nil, root.Messages, resp, nil
+}
 
 // Sent returns messages that you've sent.
 func (s *MessageService) Sent(ctx context.Context, opts *ListOptions) ([]*Message, *Response, error) {
