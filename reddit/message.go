@@ -305,6 +305,7 @@ func (s *MessageService) InboxMessages(ctx context.Context, opts *ListOptions) (
 }
 
 // Sent returns messages that you've sent.
+
 func (s *MessageService) Sent(ctx context.Context, opts *ListOptions) ([]*Message, *Response, error) {
 	root, resp, err := s.inbox(ctx, "message/sent", opts)
 	if err != nil {
